@@ -1,0 +1,23 @@
+A
+
+By performing two different reductions of the term 
+let g = λx. g (g x); in g (λx. x), 
+we showed that the resulting terms are not confluent. 
+This happens because the recursive definition of g creates an infinite expansion, 
+and the terms produced by different reduction paths grow in different ways.
+
+B
+
+let g = λx. g (g x); in g (λx. x) translates to:
+(λg. g (λx. x)) ((λg. (λx. g (x x)) (λx. g (x x))) (λg. λx. g (g x)))
+
+let g = λx. g x; in g (λx. x) translates to:
+(λg. g (λx. x)) ((λg. (λx. g (x x)) (λx. g (x x))) (λg. λx. g x))
+
+C
+
+The translation of the initial term cannot be reduced to the translation of Term 2 
+because the definitions of g in the two terms are different (λx. g (g x) vs. λx. g x). 
+These differences are preserved in the translations. There is NO reduction path in pure λ-calculus 
+that can reconcile them. If we modify the initial term to match Term 2's definition, then the translations 
+become identical, and reduction is trivially possible.
