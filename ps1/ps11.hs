@@ -30,8 +30,3 @@ main = do
     print $ compositeStrategy cube a b n
 
 -- B
-
-
-
--- Problem 2
--- A
